@@ -223,9 +223,36 @@ class ProblemSolutions {
             }
         }
 
-        // YOUR CODE GOES HERE - you can add helper methods, you do not need
-        // to put all code in this method.
-        return -1;
+        boolean[] visited = new boolean[numNodes]; // To track visited nodes
+
+        int groupCount = 0; // Counter for number of groups
+
+        // Go through each person (node)
+        for (int person = 0; person < numNodes; person++) {
+            // If this person hasn't been visited yet, it's a new group
+            if (!visited[person]) {
+                exploreGroup(person, graph, visited);
+                groupCount++; // Found a new group
+            }
+        }
+
+        return groupCount; // Total number of groups
+    }
+
+    private void exploreGroup(int node, Map<Integer, List<Integer>> graph, boolean[] visited) {
+        // Mark the current person as visited
+        visited[node] = true;
+
+        // Get the list of friends connected to this person
+        List<Integer> neighbors = graph.getOrDefault(node, new ArrayList());
+
+        // Visit each unvisited friend
+        for (int friend : neighbors) {
+            if (!visited[friend]) {
+                // Recursively visit this friend and their connections
+                exploreGroup(friend, graph, visited);
+            }
+        }
     }
 
 }
