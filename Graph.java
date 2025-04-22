@@ -127,5 +127,5 @@ public class Graph {
     } else { // otherwise, return -1
       return -1;
     }
-  }
+  } // Method findRoot
 }
