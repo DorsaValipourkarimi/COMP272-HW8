@@ -229,14 +229,14 @@ class ProblemSolutions {
 
         // Go through each person (node)
         for (int person = 0; person < numNodes; person++) {
-            // If this person hasn't been visited yet, it's a new group
+            // If this person hasn't been visited yet
             if (!visited[person]) {
-                exploreGroup(person, graph, visited);
-                groupCount++; // Found a new group
+                exploreGroup(person, graph, visited); // It's a new group
+                groupCount++; // Increase the counter for the new group
             }
         }
 
-        return groupCount; // Total number of groups
+        return groupCount; // Retunr total number of groups
     }
 
     private void exploreGroup(int node, Map<Integer, List<Integer>> graph, boolean[] visited) {
