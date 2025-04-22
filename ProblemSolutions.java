@@ -237,7 +237,7 @@ class ProblemSolutions {
         }
 
         return groupCount; // Retunr total number of groups
-    }
+    } // Method numGroups
 
     private void exploreGroup(int node, Map<Integer, List<Integer>> graph, boolean[] visited) {
         // Mark the current person as visited
@@ -253,6 +253,6 @@ class ProblemSolutions {
                 exploreGroup(friend, graph, visited);
             }
         }
-    }
+    } // Helper Method exploreGroup
 
 }
